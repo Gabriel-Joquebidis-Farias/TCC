@@ -19,3 +19,9 @@
 #Categorias{
     padding-bottom: 2%;
 }
+.contenerLogin{
+    width: 100%;
+    height: auto;
+    background: rgb(239,0,255);
+background: linear-gradient(90deg, rgba(239,0,255,1) 0%, rgba(237,255,0,1) 50%, rgba(244,0,255,1) 100%);
+}
