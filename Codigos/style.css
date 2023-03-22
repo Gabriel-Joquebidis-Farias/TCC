@@ -1,0 +1,21 @@
+.img1-home{
+    height: 500px;
+    width: 90%;
+    overflow: hidden;      
+}
+.img1Home{
+    background-size:cover;
+    width: 100%;
+   background-repeat: no-repeat;
+   background-attachment: fixed; 
+}
+.contener{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 2%;
+}
+#Categorias{
+    padding-bottom: 2%;
+}
