@@ -49,3 +49,45 @@ padding-bottom: 4%;
 .semBroda{
     border: 0px;
 }
+.loginCadastro{
+    align-items: center;
+
+}
+.containerLogin{
+    display: flex;
+    text-align: center;
+
+}
+.formLogin{
+    background-color: white;
+    border-radius: 25px;
+    width: 300px;
+    height: 250px;
+}
+.textLogin{
+    text-align: center;
+    padding: 5px;
+}
+.imglogin{
+ display: flex;
+ border-radius: 25px;
+}
+.form{
+    padding: 5px;
+}
+.loginCadastro{
+    display: flex;
+    padding-top: 10%;
+    padding-left: 30%;
+}
+.input100{  
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+.btnLogin{
+    background-color: green;
+    border-radius: 25px;
+    border: none;
+    width: 150px;
+}
