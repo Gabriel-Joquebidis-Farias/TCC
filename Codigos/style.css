@@ -1,6 +1,6 @@
 .img1-home{
-    height: 500px;
-    width: 90%;
+    height: 600px;
+    width: 100%;
     overflow: hidden;      
 }
 .img1Home{
@@ -23,7 +23,7 @@
     width: 100%;
     height: auto;
     background: rgb(239,0,255);
-background: linear-gradient(90deg, rgba(239,0,255,1) 0%, rgba(237,255,0,1) 50%, rgba(244,0,255,1) 100%);
+background: linear-gradient(90deg, #F557D4 0%, #F4EB72 50%, #F557D4 100%);
 }
 .imagensHome{
     width: 150px;
@@ -71,6 +71,7 @@ padding-bottom: 4%;
 .imglogin{
  display: flex;
  border-radius: 25px;
+ padding-right: 5px;
 }
 .form{
     padding: 5px;
@@ -78,7 +79,7 @@ padding-bottom: 4%;
 .loginCadastro{
     display: flex;
     padding-top: 10%;
-    padding-left: 30%;
+    padding-left: 33%;
 }
 .input100{  
     border-top: none;
@@ -86,8 +87,17 @@ padding-bottom: 4%;
     border-right: none;
 }
 .btnLogin{
-    background-color: green;
+    background-color: #5FDB8E;
     border-radius: 25px;
     border: none;
     width: 150px;
+    color: white;
+    
 }
+.espacoTop{
+padding-top: 10px;
+}
+.tamanhoNav{
+    height: 50px;
+}
+
