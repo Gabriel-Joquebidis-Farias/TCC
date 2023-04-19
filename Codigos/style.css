@@ -22,8 +22,7 @@
 .contenerLogin{
     width: 100%;
     height: auto;
-    background: rgb(239,0,255);
-background: linear-gradient(90deg, #F557D4 0%, #F4EB72 50%, #F557D4 100%);
+    background: linear-gradient(90deg, #F557D4 0%, #F4EB72 50%, #F557D4 100%);
 }
 .imagensHome{
     width: 150px;
@@ -100,4 +99,15 @@ padding-top: 10px;
 .tamanhoNav{
     height: 50px;
 }
+.limitador{
+    height: 600px;
+    width: 600px;
+}
+.formCadastro{
+    background-color: white;
+    border-radius: 25px;
+    height: 400 px;
+    width: 600px;
+}
+
 
