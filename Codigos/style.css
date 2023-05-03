@@ -109,5 +109,22 @@ padding-top: 10px;
     height: 400 px;
     width: 600px;
 }
+/*----------------------------------------------------SobreNos------------------------------------------------------------------------*/
+.sobreNosTitulo{
+    text-align: center;
+    padding: 2%;
 
+}
+.TextoSobreNos{
+    text-align: center;
+    font-size: 30px;
+}
+.containerTxt1{
+    padding-left: 3%;
+    padding-right: 3%;
+    width: 100%;
+}
+.containerImg1{
+    
+}
 
