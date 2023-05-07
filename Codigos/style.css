@@ -117,14 +117,30 @@ padding-top: 10px;
 }
 .TextoSobreNos{
     text-align: center;
-    font-size: 30px;
+    font-size: 26px;
 }
 .containerTxt1{
     padding-left: 3%;
     padding-right: 3%;
     width: 100%;
 }
-.containerImg1{
+.img1SobreNos{
+    padding-left: 3%;
+    width: 650px;
+    height: 400px;
+    overflow: hidden;
+    float: left;
+    
     
 }
+.containertxt2{
+  padding-top: 100px;
+  padding-right: 20px;
+  padding-right: 20px;
+
+}
+
+
+
+
 
