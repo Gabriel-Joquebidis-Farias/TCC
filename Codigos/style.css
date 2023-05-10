@@ -119,26 +119,55 @@ padding-top: 10px;
     text-align: center;
     font-size: 26px;
 }
-.containerTxt1{
+.containerTxt1{ 
     padding-left: 3%;
     padding-right: 3%;
     width: 100%;
+    display: flex   ;
 }
 .img1SobreNos{
-    padding-left: 3%;
-    width: 650px;
-    height: 400px;
-    overflow: hidden;
+    margin: 0 3%;
+    --debug: 40%;   
+    padding-left: 50px;
+    width: var(--debug);
+    height: 500px;
+    display: flex;
     float: left;
-    
-    
+    background-image: url(imagens/caixa.png);
 }
 .containertxt2{
   padding-top: 100px;
   padding-right: 20px;
-  padding-right: 20px;
+  height: 500px;
+  display: flex;
 
 }
+.containertxt3{
+    --debug: 50%;
+    margin: 0 3% 3% 2% ;
+    width: var(--debug);
+    height: 500px;
+    display: flex;
+    float: left ;
+    padding-top: 10%;
+}
+.img2SobreNos{
+    margin: 0 0 0 3%;
+    width: 40%;
+    height: 500px;
+    display: flex;
+    float: left;
+    background-image: url(imagens/papelaria.png);
+    background-color: #F4EB72;
+}
+.containertxt4{
+    margin: 0 3% 3% 3% ;
+    height: 500px;
+    display: flex;
+    float: left ;
+  
+}
+
 
 
 
