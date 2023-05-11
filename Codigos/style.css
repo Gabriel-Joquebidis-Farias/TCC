@@ -1,4 +1,4 @@
-.img1-home{
+.banner{
     height: 600px;
     width: 100%;
     overflow: hidden;      
@@ -167,7 +167,14 @@ padding-top: 10px;
     float: left ;
   
 }
-
+/*---------------------------------------------------------------------Cadastro da Loja-----------------------------------------------------------------------------------*/
+.banerCadLoja{
+    background-size:cover;
+    width: 100%;
+   background-repeat: no-repeat;
+   background-attachment: fixed; 
+}
+    
 
 
 
