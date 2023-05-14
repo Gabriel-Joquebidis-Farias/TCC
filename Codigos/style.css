@@ -1,5 +1,4 @@
 .banner{
-    height: 600px;
     width: 100%;
     overflow: hidden;      
 }
@@ -173,6 +172,21 @@ padding-top: 10px;
     width: 100%;
    background-repeat: no-repeat;
    background-attachment: fixed; 
+}
+.ParceriaTxt{
+    padding-left: 30px;
+    width: 400px
+    
+}
+.tituloParceria{
+    width: 400px;
+    
+}
+.txtParceria{
+    font-size: 26px;
+}#Vantagens{
+    text-align: center;
+    font-size: 50px;
 }
     
 
