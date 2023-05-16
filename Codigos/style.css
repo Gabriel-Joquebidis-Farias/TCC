@@ -184,9 +184,12 @@ padding-top: 10px;
 }
 .txtParceria{
     font-size: 26px;
-}#Vantagens{
+}.Vantagens{
     text-align: center;
     font-size: 50px;
+}
+.Vantagem{  
+   width: 1000px;
 }
     
 
