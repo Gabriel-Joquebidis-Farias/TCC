@@ -193,18 +193,16 @@ padding-top: 10px;
 
 }
 .PlanoBasico{
-    text-align: center;
-    width: 100px;
-    border-style: solid;
-    border-color: black;
-    
+    border: solid 2px black;
+    width: 25%;
 }
-.containerPlanos{
-    text-align: center;
-    width: 1000px;
-    border-style: solid;
-    border-color: #F4EB72;
-    
+.ContainerPlanos{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.textoPlanos{
+    font-size: 25px;
 }
     
 
