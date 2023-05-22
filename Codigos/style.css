@@ -47,10 +47,6 @@ padding-bottom: 4%;
 .semBroda{
     border: 0px;
 }
-.loginCadastro{
-    align-items: center;
-
-}
 .containerLogin{
     display: flex;
     text-align: center;
@@ -76,8 +72,6 @@ padding-bottom: 4%;
 }
 .loginCadastro{
     display: flex;
-    padding-top: 10%;
-    padding-left: 33%;
 }
 .input100{  
     border-top: none;
@@ -173,6 +167,9 @@ padding-top: 10px;
    background-repeat: no-repeat;
    background-attachment: fixed; 
 }
+.bannerVantagens{
+    display: inline-flex;
+}
 .ParceriaTxt{
     padding-left: 30px;
     width: 400px
@@ -194,13 +191,12 @@ padding-top: 10px;
 }
 .PlanoBasico{
     border: solid 2px black;
-    width: 25%;
+    width: 30%; /* para mobile 60%*/
     border-radius: 10%;
 }
 .ContainerPlanos{
     display: flex;
     justify-content: center;
-    width: 100%;
     padding-bottom: 1%;
     
 }
@@ -220,7 +216,22 @@ padding-top: 10px;
 .containerBotao{
     text-align: center;
     padding-bottom: 3%;
+    
 }
+
+
+
+
+
+
+
+/*-----------------------Responsividade-----------------*/
+@media (max-width:992px) and (min-width:576px){
+    .PlanoBasico{
+        width: 60%;
+    }
+}
+
 
 
 
