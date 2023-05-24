@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Art Search</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="imagens/Art Search 3 (favicon).png"/>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Art Search</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" href="imagens/Art Search 3 (favicon).png" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
 
 <script language="javascript">
 
   let logEmail = "teste@abc.com";
 
-  function verificarLogin(){
+  function verificarLogin() {
     let nome = document.getElementById("txtNome").value;
     let cpf = document.getElementById("txtCPF").value;
     let tel = document.getElementById("txtTelefone").value;
@@ -23,117 +25,127 @@
 
     document.getElementById("msgErro").style.display = "none";
 
-    if(nome == ""){
+    if (nome == "") {
       document.getElementById("msgErro").style.color = "red";
       document.getElementById("msgErro").textContent = "Nome é um campo obrigatório.";
       document.getElementById("msgErro").style.display = "inline";
-    }else if(cpf == ""){
+    } else if (cpf == "") {
       document.getElementById("msgErro").style.color = "red";
       document.getElementById("msgErro").textContent = "CPF é um campo obrigatório.";
       document.getElementById("msgErro").style.display = "inline";
-    }else if(tel== ""){
+    } else if (tel == "") {
       document.getElementById("msgErro").style.color = "red";
       document.getElementById("msgErro").textContent = "Telefone é um campo obrigatório.";
       document.getElementById("msgErro").style.display = "inline";
-    }else if(email == ""){
+    } else if (email == "") {
       document.getElementById("msgErro").style.color = "red";
       document.getElementById("msgErro").textContent = "Email é um campo obrigatório.";
       document.getElementById("msgErro").style.display = "inline";
-    }else if(senha == ""){
+    } else if (senha == "") {
       document.getElementById("msgErro").style.color = "red";
       document.getElementById("msgErro").textContent = "Senha é um campo obrigatório.";
       document.getElementById("msgErro").style.display = "inline";
-    }else if(email === logEmail){
+    } else if (email === logEmail) {
       document.getElementById("msgErro").style.color = "red";
       document.getElementById("msgErro").textContent = "E-mail de usuário já cadastrado.";
       document.getElementById("msgErro").style.display = "inline";
     }
 
   }
-  
+
 </script>
 
 <body class="contenerLogin">
   <nav class="navbar navbar-expand-lg bg-body-tertiary ">
     <div class="container-fluid">
       <a class="navbar-brand"><img src="imagens/navbar.png" width="60%"> </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse " id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link " aria-current="page" href="index.html"><h5>HOME</h5></a>
+            <a class="nav-link " aria-current="page" href="index.html">
+              <h5>HOME</h5>
+            </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="produtos.html"><h5>PRODUTOS</h5></a>
+            <a class="nav-link " href="produtos.html">
+              <h5>PRODUTOS</h5>
+            </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="sobre.html"><h5>SOBRE NÓS</h5></a>
+            <a class="nav-link" href="sobre.html">
+              <h5>SOBRE NÓS</h5>
+            </a>
           </li>
           </li>
         </ul>
         <form class="d-flex tamanhoNav" role="search">
-          <input class="form-control buscaTxt" type="search" placeholder="Search" aria-label="Search" style="border-radius: 25px;">
-              <button class="btn" type="submit"><img src="imagens/search.svg" alt="" width="30" height="30"></button>
+          <input class="form-control buscaTxt" type="search" placeholder="Search" aria-label="Search"
+            style="border-radius: 25px;">
+          <button class="btn" type="submit"><img src="imagens/search.svg" alt="" width="30" height="30"></button>
           <li class="nav">
-            <a class="logincadastro" href="login.html"><img class="imglogin" src="imagens/loginCadastro.png" alt="Login/Cadastro" height="60px"></a>
+            <a class="logincadastro" href="login.html"><img class="imglogin" src="imagens/loginCadastro.png"
+                alt="Login/Cadastro" height="60px"></a>
           </li>
         </form>
         <ul class="navbar-nav mb-2 mb-lg-0">
           <li class="nav-item">
-          <a class="login/cadastro" class="nav-link"></a>
-        </li>
+            <a class="login/cadastro" class="nav-link"></a>
+          </li>
         </ul>
       </div>
     </div>
   </nav>
-    
-  <div class="loginCadastro"> 
-      <div class="limitador">
-        <div class="containerLogin">
-          <form class="formCadastro">
-            <h4 class="espacoTop">Cadastrar</h4>  
-            <div class="form">
-              <input class="input100" type="text" id="txtNome" name="Nome" placeholder="Nome: "   >
-            </div>
-            <div class="form">
-              <input class="input100" type="text" id="txtCPF" name="Cpf" placeholder="CPF: ___.___.___-__">
-            </div>
-            <div class="form">
-              <input class="input100" type="text" id="txtTelefone" name="Telefone"placeholder="Telefone: ">
-            </div>
-          
-            <div class="form  "data-validate = "Valid email is required: ex@abc.xyz">
-              <input class="input100" type="text" id="txtEmail" name="email" placeholder="Email: ">         
-            </div>
-  
-            <div class="form " data-validate = "Password is required">
-              <input class="input100" type="password" id="txtSenha" name="pass" placeholder="Senha: ">
-            </div>
 
-            <small id="msgErro" style="font-variant: small-caps;"></small>
-            
-            <div class="form espacoTop">
-              <input type="button" value="Continuar" class="form btnLogin" onclick="verificarLogin()">
-            </div>
-  
-            <div class="form"></div>
-  
-            <div class="form">
-              <a class="txt2" href="login.html">
-                Entrar/logar
-                <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
-              </a>
-            </div>
+  <div class="loginCadastro">
+    <div class="limitador">
+      <div class="containerLogin">
+        <form class="formCadastro">
+          <h4 class="espacoTop">Cadastrar</h4>
+          <div class="form">
+            <input class="input100" type="text" id="txtNome" name="Nome" placeholder="Nome: ">
+          </div>
+          <div class="form">
+            <input class="input100" type="text" id="txtCPF" name="Cpf" placeholder="CPF: ___.___.___-__">
+          </div>
+          <div class="form">
+            <input class="input100" type="text" id="txtTelefone" name="Telefone" placeholder="Telefone: ">
+          </div>
 
-            <br>
+          <div class="form  " data-validate="Valid email is required: ex@abc.xyz">
+            <input class="input100" type="text" id="txtEmail" name="email" placeholder="Email: ">
+          </div>
 
-          </form>
-        </div>
+          <div class="form " data-validate="Password is required">
+            <input class="input100" type="password" id="txtSenha" name="pass" placeholder="Senha: ">
+          </div>
+
+          <small id="msgErro" style="font-variant: small-caps;"></small>
+
+          <div class="form espacoTop">
+            <input type="button" value="Continuar" class="form btnLogin" onclick="verificarLogin()">
+          </div>
+
+          <div class="form"></div>
+
+          <div class="form">
+            <a class="txt2" href="login.html">
+              Entrar/logar
+              <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+            </a>
+          </div>
+
+          <br>
+
+        </form>
       </div>
     </div>
+  </div>
 
 
 </body>
+
 </html>
