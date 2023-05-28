@@ -76,7 +76,7 @@ padding-bottom: 4%;
 .containerLogin{
     display: flex;
     position: absolute;   
-    background-color:  blue;
+    
     /*centralizar*/
     top: 50%;
     transform: translateY(100%);
