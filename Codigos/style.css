@@ -47,11 +47,7 @@ padding-bottom: 4%;
 .semBroda{
     border: 0px;
 }
-.containerLogin{
-    display: flex;
-    text-align: center;
 
-}
 .formLogin{
     background-color: white;
     border-radius: 25px;
@@ -72,6 +68,21 @@ padding-bottom: 4%;
 }
 .loginCadastro{
     display: flex;
+    text-align: center;
+    justify-content: center;
+    background-color: black;
+    position: relative;
+}
+.containerLogin{
+    display: flex;
+    position: absolute;   
+    background-color:  blue;
+    /*centralizar*/
+    top: 50%;
+    transform: translateY(100%);
+
+    
+
 }
 .input100{  
     border-top: none;
@@ -92,10 +103,7 @@ padding-top: 10px;
 .tamanhoNav{
     height: 50px;
 }
-.limitador{
-    height: 600px;
-    width: 600px;
-}
+
 .formCadastro{
     background-color: white;
     border-radius: 25px;
@@ -218,6 +226,7 @@ padding-top: 10px;
     padding-bottom: 3%;
     
 }
+
 
 
 
