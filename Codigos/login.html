@@ -11,12 +11,13 @@
 </head>
 
 <body class="contenerLogin">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
   <script src="usuarios.js"></script>
 
   <script language="javascript">
-    function escrever(email , senha){
+    function escrever(email, senha) {
       console.log(email);
     }
 
@@ -24,8 +25,7 @@
     //O login funciona mas não cria o cookie. Precisa corrigir
     function login(email, senha) {
       if (email == usuarioTeste[3] && senha == usuarioTeste[4] && email.trim() != "" && senha.trim() != "") {
-        document.cookie = `usuario=${usuarioTeste[0]}`
-        document.cookie = "senha="+usuarioTeste[5];
+        document.cookie = `usuario=${usuarioTeste[0]};senha=${usuarioTeste[5]};path=/}`;
 
         console.log(email);
         console.log(senha);
