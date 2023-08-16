@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Art Search - Cadastro Loja</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="imagens/Art Search 3 (favicon).png"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <style type="text/css">
+      a {
+        text-decoration: none;
+        color: #a76b12;
+      }
+
+      .login-form {
+        color: black;
+        width: 300px;
+        font-size: 15px;
+      }
+
+      .login-form form {
+        border-radius: 15px;
+        margin-bottom: 10px;
+        background: #f7f7f7;
+        box-shadow: 0px 15px 15px rgba(0, 0, 0, 0.3);
+        padding: 20px;
+      }
+
+      .login-form h3 {
+        margin: 0 0 15px;
+      }
+
+      .btnCadastro{
+        color: white;
+        background: -webkit-linear-gradient(to right, #a76b12, #a71168);
+        background: linear-gradient(to right, #a76b12, #a71168);
+        border-radius: 20px;
+      }
+
+      .btnCadastro:hover{
+        color:rgb(238, 238, 238);
+      }
+      .labelForm{
+        border-radius: 20px;
+      }
+
+      .bgGradient{
+        background: -webkit-linear-gradient(to right, #a76b12, #a71168);
+        background: linear-gradient(to right, #a76b12, #a71168);
+      }
+
+      .card {
+        background-color: #fff;
+        border-radius: 10px;
+        border: none;
+        position: relative;
+        margin-bottom: 30px;
+        box-shadow: 0 0.46875rem 2.1875rem rgba(90,97,105,0.1), 0 0.9375rem 1.40625rem rgba(90,97,105,0.1), 0 0.25rem 0.53125rem rgba(90,97,105,0.12), 0 0.125rem 0.1875rem rgba(90,97,105,0.1);
+      }
+
+      .l-bg-cherry {
+        background: linear-gradient(to right, #493240, #f09) !important;
+        color: #fff;
+      }
+
+      .l-bg-blue-dark {
+        background: linear-gradient(to right, #373b44, #4286f4) !important;
+        color: #fff;
+      }
+
+      .l-bg-green-dark {
+        background: linear-gradient(to right, #0a504a, #38ef7d) !important;
+        color: #fff;
+      }
+
+      .l-bg-orange-dark {
+        background: linear-gradient(to right, #a86008, #ffba56) !important;
+        color: #fff;
+      }
+
+      .card .card-statistic-3 .card-icon-large .fas, .card .card-statistic-3 .card-icon-large .far, .card .card-statistic-3 .card-icon-large .fab, .card .card-statistic-3 .card-icon-large .fal {
+        font-size: 110px;
+      }
+
+      .card .card-statistic-3 .card-icon {
+        text-align: center;
+        line-height: 50px;
+        margin-left: 15px;
+        color: #000;
+        position: absolute;
+        right: 10px;
+        top: 20px;
+        opacity: 0.1;
+      }
+
+      .l-bg-cyan {
+        background: linear-gradient(135deg, #289cf5, #84c0ec) !important;
+        color: #fff;
+      }
+
+      .l-bg-green {
+        background: linear-gradient(135deg, #23bdb8 0%, #43e794 100%) !important;
+        color: #fff;
+      }
+
+      .l-bg-orange {
+        background: linear-gradient(to right, #f9900e, #ffba56) !important;
+        color: #fff;
+      }
+
+      .l-bg-cyan {
+        background: linear-gradient(135deg, #289cf5, #84c0ec) !important;
+        color: #fff;
+      }
+
+      *{
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -ms-box-sizing: border-box;
+        -o-box-sizing: border-box;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      .containerPlan{
+        -webkit-display: flex;
+        -moz-display: flex;
+        -ms-display: flex;
+        -o-display: flex;
+        display: flex;
+        -webkit-flex-direction: row;
+        -moz-flex-direction: row;
+        -ms-flex-direction: row;
+        -o-flex-direction: row;
+        flex-direction: row;
+        -webkit-flex-wrap: wrap;
+        -moz-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        -o-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -webkit-justify-content: center;
+        -moz-justify-content: center;
+        -ms-justify-content: center;
+        -o-justify-content: center;
+        justify-content: center;
+        margin-top: 5%;
+        margin-bottom: 5%;
+    }
+
+    .container .pricing__table {
+        display: block;
+        padding: 20px;
+        background: #ccc;
+        overflow: hidden;
+        width: 300px;
+        margin: 10px;
+        border-radius: 20px;
+        -webkit-box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+        -moz-box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+        -ms-box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+        -o-box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+        box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+        transform: scale(1);
+        -webkit-transition: all 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        -moz-transition: all 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        -ms-transition: all 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        -o-transition: all 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        transition: all 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+
+    .container .pricing__table:nth-child(1) {
+        background-image: linear-gradient(135deg, #FCCF31 10%, #F55555 100%);
+    }
+
+    .container .pricing__table:hover {
+        -webkit-transform: scale(1.2);
+        -moz-transform: scale(1.2);
+        -ms-transform: scale(1.2);
+        -o-transform: scale(1.2);
+        transform: scale(1.2);
+        z-index: 100;
+    }
+
+    .pricing__table .icon {
+        display: block;
+        width: 70px;
+        height: 70px;
+        background: #fff;
+        text-align: center;
+        line-height: 70px;
+        font-size: 2.2em;
+        margin: 20px auto;
+        border-radius: 50px;
+        -webkit-box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);
+        -moz-box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);
+        -ms-box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);
+        -o-box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);
+        box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .pricing__table .icon span {
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+        transform: scale(1);
+        -webkit-transition: all 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        -moz-transition: all 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        -ms-transition: all 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        -o-transition: all 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        transition: all 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+
+    .pricing__table .type-01 {
+        color: #FCCF31;
+    }
+
+    .heading {
+        color: #fff;
+        text-align: center;
+        text-transform: capitalize;
+        font-weight: lighter;
+        padding: 10px;
+        font-size: 1.2em;
+    }
+
+    .service__price {
+        color: #fff;
+        text-align: center;
+        font-size: 3em;
+    }
+
+    .features__list {
+        list-style: none;
+        display: block;
+        text-align: center;
+        width: 85%;
+    }
+
+    .features__list li {
+        color: #fff;
+        text-align: center;
+        display: block;
+        text-transform: capitalize;
+        font-weight: lighter;
+        font-size: 0.9em;
+        height: 30px;
+        line-height: 30px;
+    }
+
+    .order__button {
+        border: none;
+        display: block;
+        width: 70%;
+        height: 40px;
+        margin: 5px auto;
+        border-radius: 50px;
+        -webkit-box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+        -moz-box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+        -ms-box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+        -o-box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+        box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+        font-family: "Roboto", sans-serif;
+        text-transform: capitalize;
+        color: rgba(0, 0, 0, 0.5);
+        background: #fff;
+        cursor: pointer;
+    }
+
+    .order__buttonn {
+        border: none;
+        display: block;
+        width: 70%;
+        height: 40px;
+        margin: 5px auto;
+        border-radius: 20px;
+        -webkit-box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+        -moz-box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+        -ms-box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+        -o-box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+        box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+        font-family: "Roboto", sans-serif;
+        text-transform: capitalize;
+        color: rgba(0, 0, 0, 0.5);
+        background: #a76b12;
+        cursor: pointer;
+    }
+
+    .order__button:focus {
+        outline: none;
+    }
+    </style>
+</head>
+
+<body class="bodyIndex">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary ">
+    <div class="container-fluid">
+      <a class="navbar-brand"><img src="imagens/navbar.png" width="60%"> </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse " id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="index.html"><h5>HOME</h5></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="produtos.html"><h5>PRODUTOS</h5></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="sobre.html"><h5>SOBRE NÓS</h5></a>
+          </li>
+        </ul>
+        <form class="d-flex tamanhoNav" role="search">
+          <input class="form-control buscaTxt" type="search" placeholder="Search" aria-label="Search" style="border-radius: 25px;">
+          <button class="btn" type="submit"><img src="imagens/lupa.png" alt="" width="38px" height="38px"></button>
+          <a style="font-size: 30px;"> | </a>
+          <li class="nav">
+            <a class="carrinho" href=""><img src="imagens/carrinho.png" height="45px" width="45px" alt="Carrinho"></a>
+          </li>
+          <a style="font-size: 30px;"> | </a>
+          <li class="nav">
+            <a class="logincadastro" href="login.html"><img src="imagens/pessoa.png" height="45px" width="45px" alt="Pessoa"></a>
+          </li>
+        </form>
+        <ul class="navbar-nav mb-2 mb-lg-0">
+          <li class="nav-item">
+          <a class="login/cadastro" class="nav-link"></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  <div class="bgGradient" style="color:white;">
+    
+    <div class="container row" style="display: flex;align-items: center; justify-content: center;" align="center">
+      <div class="col-md-6" style="text-align: left;"><br>
+        <h1 class="display-4 font-italic">Conheça um pouco mais sobre nós!</h1>
+        <p class="lead my-3">Imagine uma plataforma online que conecta clientes e papelarias de maneira rápida, simples e eficiente.<br><br>Essa é a proposta da nossa plataforma, que foi desenvolvida com o objetivo de facilitar o processo de compra e venda de materiais de papelaria.</p>
+      </div>
+    </div>
+  
+    <br><br><br><br><br>
+  </div>
+
+  
+    <div class="card container col-md-9" style="margin-top: -15vh;">
+      <br><br><br>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+    
+      
+      <div class="container marketing col-md-10"><br>
+        <div class="row featurette">
+          <div class="col-md-7">
+            <h2 class="featurette-heading">Para Clientes:</h2>
+            <p class="lead my-2">Encontre papelarias de confiança em sua região!
+              <br><br>
+              Compre e receba seus produtos em casa com segurança ou busque eles em uma papelaria próxima, tudo de forma fácil e descomplicada.
+              <br><br>
+              Navegue pelo nosso extenso catálogo e descubra uma seleção diversificada de itens de papelaria de alta qualidade. Oferecemos desde canetas e lápis de diversas marcas renomadas até cadernos e blocos de notas elegantes, ideais para suas anotações, desenhos e rascunhos.
+              <br><br>
+              A <b>Art Search</b> é o seu destino definitivo para encontrar os melhores produtos de papelaria.
+            </p>
+            <br>
+            <a href="produtos.html"><button class="btn btn-warning" type="button" style="width: 35vw; height: 7vh; color: rgb(255, 255, 255);">Ver produtos</button></a>
+          </div>
+          <div class="col-md-5">
+            <img class="featurette-image img-fluid mx-auto" alt="200x200" style="width: 500px; height: 500px;" src="imagens/caixa.png" data-holder-rendered="true">
+          </div>
+        </div>
+        <br>
+        <hr class="featurette-divider">
+        <br>
+        <div class="row featurette">
+          <div class="col-md-5">
+            <img class="featurette-image img-fluid mx-auto" alt="200x200" style="width: 500px; height: 500px;" src="imagens/papelaria.png" data-holder-rendered="true">
+          </div>
+          <div class="col-md-7">
+            <h2 class="featurette-heading">Para Papelarias:</h2>
+            <p class="lead my-2">Você tem ou trabalha em uma papelaria?<br><br>
+              As papelarias cadastradas em nossa plataforma podem ampliar sua base de clientes e expandir seus negócios de maneira simples e eficiente.<br><br>
+              Em resumo, a nossa plataforma é a solução perfeita para clientes em busca de produtos de qualidade, e para papelarias que desejam expandir seus negócios e atender a um público mais amplo.<br><br>
+              Com a nossa plataforma, a compra e venda de materiais de papelaria nunca foi tão fácil e eficiente.
+            </p>
+            <br><br>
+            <a href="CadastroLoja.html"><button class="btn" type="button" style="background-color: rgb(197, 82, 182);width: 35vw; height: 7vh; color: rgb(255, 255, 255);">Saiba Mais</button></a>
+          </div>
+        </div>
+        <br>
+      </div>
+    </div>
+
+  <footer class="text-center text-lg-start text-white" style="background-color: #363636">
+    <div class="container p-4 pb-0">
+      <section class="">
+        <div class="row">
+          <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+            <h5 class="text-uppercase"><i>Materiais</i></h5>
+
+            <ul class="list-unstyled mb-0">
+              <li>
+                <a href="#!" class="text-white">Folhas</a>
+              </li>
+              <li>
+                <a href="#!" class="text-white">Escrita</a>
+              </li>
+              <li>
+                <a href="#!" class="text-white">Canetas</a>
+              </li>
+              <li>
+                <a href="#!" class="text-white">Mochilas</a>
+              </li>
+              <li>
+                <a href="#!" class="text-white">Cadernos</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+            <h5 class="text-uppercase"><i>Links úteis</i></h5>
+
+            <ul class="list-unstyled mb-0">
+              <li>
+                <a href="Aviso-Legal.html" class="text-white"><i>Aviso Legal</i></a>
+              </li>
+              <li>
+                <a href="Termos-de-servico.html" class="text-white"><i>Termos de Serviço</i></a>
+              </li>
+              <li>
+                <a href="Politica-de-frete.html" class="text-white"><i>Política de Frete</i></a>
+              </li>
+              <li>
+                <a href="Politica-de-reembolso.html" class="text-white"><i>Política de Reembolso</i></a>
+              </li>
+              <li>
+                <a href="Politica-de-privacidade.html" class="text-white"><i>Política de Privacidade</i></a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+            <h5 class="text-uppercase"><i>Para papelarias</i></h5>
+
+            <p>
+              Está afim de alavancar seu negócio? Temos planos gratuitos para sua papelaria começar a vender hoje<br> na Art Search.
+              Venha conhecer nossa plataforma!<br>
+              <a href="CadastroLoja.html" style="color: #a76b12;"> Conhecer </a>ㅤ|ㅤ<a href="loginPapelarias.html" style="color: #a76b12;"> Fazer Login </a>
+            </p>
+          </div>
+
+          <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+            <p class="titulosRodape">Deixe seu e-mail e receba nossas oferta!:</p>
+            <input class="form-control buscaTxt" type="search" placeholder="Search" aria-label="Search" style="border-radius: 8px;"><br>
+            <button class="order__buttonn" style="color: white;><a href="produtos.html">Veja Mais!</a></button>
+          </div>
+        </div>
+      </section>
+     <br><br>
+    </div>
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+         O uso deste site está sujeito aos termos e condições do Termo de Uso e Política de privacidade ©Art Search.<br>
+         Todos os direitos reservados.
+    </div>
+  </footer>
+
+</body>
+</html>
