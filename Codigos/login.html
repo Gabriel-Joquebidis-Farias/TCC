@@ -127,19 +127,33 @@
   </div>
 </div>
 
-  <script>
-    document.getElementById('loginButton').addEventListener('click', function(event) {
-      event.preventDefault();
-      var username = document.getElementById('username').value;
-      var password = document.getElementById('password').value;
+<script>
+  document.getElementById('loginForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    var username = document.getElementById('username').value;
+    var password = document.getElementById('password').value;
 
-      if (username === 'ninavenelli' && password === '123456') {
-        window.open('carrinho.html', '_blank');
+    // Crie um objeto FormData para enviar os dados do formulário para o PHP
+    var formData = new FormData();
+    formData.append('username', username);
+    formData.append('password', password);
+
+    // Faça uma solicitação AJAX para o arquivo login.php
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'login.php', true);
+    xhr.onload = function() {
+      if (xhr.status === 200) {
+        // A resposta do PHP será exibida aqui
+        document.getElementById('message').innerHTML = xhr.responseText;
       } else {
-        document.getElementById('message').innerHTML = 'Usuário ou senha incorretos. Confira se há algo de errado ou se realmente possue uma conta!</a>';
+        // Trate erros de solicitação aqui
+        console.error('Erro na solicitação AJAX.');
       }
-    });
-  </script>
+    };
+    xhr.send(formData);
+  });
+</script>
+
 </body>
 
 </html>
