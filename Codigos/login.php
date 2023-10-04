@@ -2,6 +2,9 @@
 // Inclua o arquivo de conexão com o banco de dados
 include('conexaoBD.php');
 
+// Inicie a sessão (se já não estiver iniciada)
+session_start();
+
 // Verifique se o formulário foi enviado
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Obter os dados do formulário
@@ -10,17 +13,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Verifique se ambos os campos de usuário e senha foram preenchidos
     if (!empty($username) && !empty($password)) {
-        // Consulta SQL para verificar se o usuário e a senha correspondem
-        $sql = "SELECT  nome, senha FROM PI_Cliente WHERE nome = '$username' AND senha = '$password'";
+        // Consulta SQL para verificar se o usuário existe no banco de dados
+        $sql = "SELECT id, nome, senha FROM PI_Cliente WHERE nome = '$username'";
         $result = $conn->query($sql);
 
         if ($result->num_rows == 1) {
-            // Usuário e senha correspondem, o login é bem-sucedido
-            // Você pode redirecionar o usuário para a página de boas-vindas ou fazer qualquer outra ação desejada aqui
-            echo "Login bem-sucedido!";
+            // Usuário encontrado, verificar a senha
+            $row = $result->fetch_assoc();
+            $senhaHash = $row["senha"];
+
+            // Use a função password_verify para verificar a senha
+            if (password_verify($password, $senhaHash)) {
+                // Senha correta, o login é bem-sucedido
+                // Configurar variáveis de sessão para armazenar informações do usuário
+                $_SESSION['user_id'] = $row['id'];
+                $_SESSION['user_nome'] = $row['nome'];
+
+                // Redirecionar o usuário para a página de boas-vindas ou outra página
+                echo"Sucesso";
+                exit(); // Encerrar a execução após o redirecionamento
+            } else {
+                // Senha incorreta
+                echo "Senha incorreta. Tente novamente.";
+            }
         } else {
-            // Usuário ou senha incorretos
-            echo "Usuário ou senha incorretos. Tente novamente.";
+            // Usuário não encontrado
+            echo "Usuário não encontrado. Verifique o nome de usuário.";
         }
     } else {
         // Campos em branco
