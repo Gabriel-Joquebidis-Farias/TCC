@@ -100,13 +100,13 @@
     <div class="container row justify-content-center" align="center">
       <div><br>
         <div class="login-form">
-          <form id="loginForm">
+          <form id="loginForm" >
             <h3 class="text-center">Faça seu Login!</h3>
             <div class="form-group" style="margin-top: 8px;">
-              <input type="text" class="form-control labelForm" id="username" placeholder="Usuário Papelarias" required="required">
+              <input type="text" class="form-control labelForm" id="username" name="username" placeholder="Usuário Papelarias" required="required">
             </div>
             <div class="form-group">
-              <input type="password" class="form-control labelForm" id="password" placeholder="Senha" required="required">
+              <input type="password" class="form-control labelForm" id="password" name="password" placeholder="Senha" required="required">
             </div>
             <div class="form-group">
               <div class="mt-3 align-items-center d-grid gap-2">
@@ -133,12 +133,25 @@
       var username = document.getElementById('username').value;
       var password = document.getElementById('password').value;
 
-      if (username === 'papercolor' && password === '123456') {
-        window.open('para-papelarias/index.html', '_blank');
+       // Crie um objeto FormData para enviar os dados do formulário para o PHP
+    var formData = new FormData();
+    formData.append('username', username);
+    formData.append('password', password);
+
+    // Faça uma solicitação AJAX para o arquivo login.php
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'loginPapelaria.php', true);
+    xhr.onload = function() {
+      if (xhr.status === 200) {
+        // A resposta do PHP será exibida aqui
+        window.open("logado.html");
       } else {
-        document.getElementById('message').innerHTML = 'Usuário ou senha incorretos. Confira se há algo de errado ou se realmente possue uma conta!</a>';
+        // Trate erros de solicitação aqui
+        console.error('Erro na solicitação AJAX.');
       }
-    });
+    };
+    xhr.send(formData);
+  });
   </script>
 </body>
 

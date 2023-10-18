@@ -9,6 +9,11 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 
 // Verificar a conexão
 if ($conn->connect_error) {
-    die("Erro na conexão: " . $conn->connect_error);
+    die("Erro na conexão com o banco de dados: " . $conn->connect_error);
+}
+
+// Função para fechar a conexão com o banco de dados
+function fecharConexao($conn) {
+$conn->close();
 }
 ?>
