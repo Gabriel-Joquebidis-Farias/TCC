@@ -144,7 +144,7 @@
     xhr.onload = function() {
       if (xhr.status === 200) {
         // A resposta do PHP será exibida aqui
-        window.open("logado.html");
+        window.location.replace("logado.html");
       } else {
         // Trate erros de solicitação aqui
         console.error('Erro na solicitação AJAX.');
