@@ -4,6 +4,7 @@ include('conexaoBD.php');
 
 // Inicie a sessão (se já não estiver iniciada)
 session_start();
+     $logado = false;
 
 // Verifique se o formulário foi enviado
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -28,6 +29,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 // Configurar variáveis de sessão para armazenar informações do usuário
                 $_SESSION['user_id'] = $row['id'];
                 $_SESSION['user_nome'] = $row['nome'];
+                $_SESSION['user_email'] = $row['email'];
+                $_SESSION['user_tel'] = $row['telefone'];
+                $_SESSION['user_cpf'] = $row['cpf'];
+                $_SESSION['user_Nascimento'] = $row['dataNascimento'];
+                $logado = true;
+
 
                 // Redirecionar o usuário para a página de boas-vindas ou outra página
                 echo"Sucesso";

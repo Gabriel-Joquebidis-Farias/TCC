@@ -1,19 +1,50 @@
 <?php
-$servername = "143.106.241.3"; // Nome do servidor
-$username = "cl201280"; // Nome de usuário do banco de dados
-$password = "cl*13092005"; // Senha do banco de dados
-$dbname = "cl201280"; // Nome do banco de dados
+// Inclua o arquivo de conexão com o banco de dados
+include('conexaoBD.php');
 
-// Criar uma conexão
-$conn = new mysqli($servername, $username, $password, $dbname);
+// Inicie a sessão (se já não estiver iniciada)
+session_start();
 
-// Verificar a conexão
-if ($conn->connect_error) {
-    die("Erro na conexão com o banco de dados: " . $conn->connect_error);
-}
+// Verifique se o formulário foi enviado
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Obter os dados do formulário
+    $username = isset($_POST['username']) ? $_POST['username'] : '';
+    $password = isset($_POST['password']) ? $_POST['password'] : '';
 
-// Função para fechar a conexão com o banco de dados
-function fecharConexao($conn) {
-$conn->close();
+    // Verifique se ambos os campos de usuário e senha foram preenchidos
+    if (!empty($username) && !empty($password)) {
+        // Consulta SQL para verificar se o usuário existe no banco de dados
+        $sql = "SELECT id, nome, email, telefone, senha FROM PI_Cliente WHERE nome = '$username'";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows == 1) {
+            // Usuário encontrado, verificar a senha
+            $row = $result->fetch_assoc();
+            $senhaHash = $row["senha"];
+
+            // Use a função password_verify para verificar a senha
+            if (password_verify($password, $senhaHash)) {
+                // Senha correta, o login é bem-sucedido
+                // Armazenar informações do usuário em variáveis de sessão
+                $_SESSION['user_id'] = $row['id'];
+                $_SESSION['user_nome'] = $row['nome'];
+                $_SESSION['user_email'] = $row['email'];
+                $_SESSION['user_telefone'] = $row['telefone'];
+
+                // Redirecionar o usuário para a página de boas-vindas ou outra página
+                echo "Sucesso";
+                exit(); // Encerrar a execução após o redirecionamento
+            } else {
+                // Senha incorreta
+                echo "Senha incorreta. Tente novamente.";
+            }
+        } else {
+            // Usuário não encontrado
+            echo "Usuário não encontrado. Verifique o nome de usuário.";
+        }
+    } else {
+        // Campos em branco
+        echo "Por favor, preencha todos os campos.";
+    }
 }
 ?>
