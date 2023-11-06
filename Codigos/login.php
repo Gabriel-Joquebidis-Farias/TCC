@@ -4,7 +4,9 @@ include('conexaoBD.php');
 
 // Inicie a sessão (se já não estiver iniciada)
 session_start();
-     $logado = false;
+
+// Defina a variável para indicar que o usuário não está logado por padrão
+$_SESSION['user_logado'] = false;
 
 // Verifique se o formulário foi enviado
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -15,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Verifique se ambos os campos de usuário e senha foram preenchidos
     if (!empty($username) && !empty($password)) {
         // Consulta SQL para verificar se o usuário existe no banco de dados
-        $sql = "SELECT id, nome, senha FROM PI_Cliente WHERE nome = '$username'";
+        $sql = "SELECT nome, senha FROM PI_Cliente WHERE nome = '$username'";
         $result = $conn->query($sql);
 
         if ($result->num_rows == 1) {
@@ -26,18 +28,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Use a função password_verify para verificar a senha
             if (password_verify($password, $senhaHash)) {
                 // Senha correta, o login é bem-sucedido
-                // Configurar variáveis de sessão para armazenar informações do usuário
-                $_SESSION['user_id'] = $row['id'];
+                // Configurar variáveis de sessão para armazenar informações do usuário                
                 $_SESSION['user_nome'] = $row['nome'];
-                $_SESSION['user_email'] = $row['email'];
-                $_SESSION['user_tel'] = $row['telefone'];
-                $_SESSION['user_cpf'] = $row['cpf'];
-                $_SESSION['user_Nascimento'] = $row['dataNascimento'];
-                $logado = true;
+                $_SESSION['user_logado'] = true; // Define o usuário como logado
+                
 
-
-                // Redirecionar o usuário para a página de boas-vindas ou outra página
-                echo"Sucesso";
+                echo "Sucesso";
                 exit(); // Encerrar a execução após o redirecionamento
             } else {
                 // Senha incorreta
