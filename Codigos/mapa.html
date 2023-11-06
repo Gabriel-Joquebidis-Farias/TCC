@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Art Search - Mapa</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="imagens/Art Search 3 (favicon).png"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
+    <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css" rel="stylesheet"/>
+
+<style>
+    a {
+        text-decoration: none;
+      }
+      
+      .order__buttonn {
+        border: none;
+        display: block;
+        width: 70%;
+        height: 40px;
+        margin: 5px auto;
+        border-radius: 20px;
+        -webkit-box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+        -moz-box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+        -ms-box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+        -o-box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+        box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+        font-family: "Roboto", sans-serif;
+        text-transform: capitalize;
+        color: rgba(0, 0, 0, 0.5);
+        background: #a76b12;
+        cursor: pointer;
+    }
+    .button{
+      border: none;
+      border-radius: 15px;
+      background-color: rgb(41, 41, 41);
+      color: white;
+    }
+</style>
+</head>
+<body class="bodyIndex">
+<style>
+    .mapboxgl-popup {
+        max-width: 400px;
+        font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    }
+</style>
+<!-- Use JavaScript para carregar a navbar -->
+<div id="navbarContainer"></div>
+
+
+  <main>
+
+    
+    <div id="map"></div>
+    <div class="pesquisaMap">
+      <input
+        type="text"
+        id="search-input"
+        placeholder="Procurar"
+        style="margin-left: 20px;
+        border-radius: 10px;
+        border: none;
+        padding-left: 10px;"
+      />
+      <button onclick="searchByTitle()" id="myBtn"
+      style="
+        width: 30px;
+        margin-left: -25px;
+        border-radius: 10px;
+        border: none;
+        background-color: rgb(241, 206, 8);
+      "
+      ><img src="https://cdn-icons-png.flaticon.com/512/2089/2089732.png" style="height: 15px;"></button>
+    </div>
+  </main>
+
+
+
+
+<script>
+ // Use JavaScript para carregar a navbar
+ const navbarContainer = document.getElementById("navbarContainer");
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", "navbar.php", true);
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            navbarContainer.innerHTML = xhr.responseText;
+        }
+    };
+    xhr.send();
+
+	mapboxgl.accessToken = 'pk.eyJ1Ijoidml0b3JiZXJnIiwiYSI6ImNsbzV2NWYydTA4dHQycm15enhubWJsbXMifQ.JbclBk0c6KX9W4OPi70RKA';
+    const map = new mapboxgl.Map({
+        container: 'map',
+        // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
+        style: 'mapbox://styles/vitorberg/clo8ky6xg00o701qp3pnj6uw7',
+        center: [-47.42509,-22.56188],
+        zoom: 11.15
+    });
+
+/*
+    const geojson = {
+      type: 'FeatureCollection',
+      features: [
+        {
+          type: 'Feature',
+          geometry: {
+            type: 'Point',
+            coordinates: [-47.42509,-22.56188]
+          },
+          properties: {
+            title: 'Papelaria',
+            description: 'Descrição de teste da papelaria aaaaaa a aaaaaaaaa aaaaaaa'
+          }
+        }
+      ]
+    };
+
+    for (const feature of geojson.features) {
+      // create a HTML element for each feature
+      const el = document.createElement('div');
+      el.className = 'marker';
+      
+      // make a marker for each feature and add it to the map
+      new mapboxgl.Marker(el)
+      .setLngLat(feature.geometry.coordinates)
+      .setPopup(
+      new mapboxgl.Popup({ offset: 25 }) // add popups
+      .setHTML(
+      `<div class="text-popup">
+        <b>${feature.properties.title}</b>
+        <p>${feature.properties.description}</p>
+        <button class="button">Ver papelaria</button>
+       </div>
+      `
+      )
+      )
+      .addTo(map);
+    }
+*/
+
+/*
+    const geocoder = new MapboxGeocoder({
+    accessToken: mapboxgl.accessToken,
+    types: 'poi',
+    // see https://docs.mapbox.com/api/search/#geocoding-response-object for information about the schema of each response feature
+    render: function (item) {
+    // extract the item's maki icon or use a default
+    const maki = item.properties.maki || 'marker';
+    return `<div class='geocoder-dropdown-item'>
+              <img class='geocoder-dropdown-icon' src='https://unpkg.com/@mapbox/maki@6.1.0/icons/${maki}-15.svg' style="opacity:60%;">
+              <span class='geocoder-dropdown-text'>
+                ${item.text}
+              </span>
+            </div>`;
+    },
+    mapboxgl: mapboxgl
+    });
+    map.addControl(geocoder, 'top-left');
+*/
+
+    const markers = [
+      {
+        title: 'PaperColor',
+        description: 'Esta é uma descrição teste de uma papelaria',
+        coordinates: [-47.42509, -22.56188],
+        iconUrl: 'https://cdn-icons-png.flaticon.com/512/726/726569.png',
+      },
+      {
+        title: 'ArtColor',
+        description: 'Esta é uma descrição teste de uma papelaria',
+        coordinates: [-47.44509, -22.56188],
+        iconUrl: 'https://cdn-icons-png.flaticon.com/512/726/726569.png',
+      },
+      {
+        title: 'MegaPapel',
+        description: 'Esta é uma descrição teste de uma papelaria',
+        coordinates: [-47.40537, -22.592180],
+        iconUrl: 'https://cdn-icons-png.flaticon.com/512/726/726569.png',
+      },
+      // Adicione mais marcadores conforme necessário
+    ];
+
+    markers.forEach(function (marker) {
+      const el = document.createElement('div');
+      el.className = 'custom-marker';
+      el.style.backgroundImage = `url(${marker.iconUrl})`;
+
+      const titleEl = document.createElement('div');
+      titleEl.className = 'marker-title';
+      titleEl.innerText = marker.title;
+
+      el.appendChild(titleEl);
+
+      new mapboxgl.Marker(el)
+        .setLngLat(marker.coordinates)
+        .setPopup(new mapboxgl.Popup().setHTML(`<h6 class="text-popup">${marker.title}</h6><p>${marker.description}</p><button class="button">Ver papelaria</button>`))
+        .addTo(map);
+    });
+
+    // Função para pesquisar por título
+    function searchByTitle() {
+      const searchInput = document.getElementById('search-input').value;
+      markers.forEach(function (marker) {
+        if (marker.title === searchInput) {
+          map.flyTo({ center: marker.coordinates, zoom: 15 });
+        }
+      });
+    }
+
+    var input = document.getElementById("search-input");
+    // Execute a function when the user presses a key on the keyboard
+    input.addEventListener("keypress", function(event) {
+      // If the user presses the "Enter" key on the keyboard
+      if (event.key === "Enter") {
+        // Cancel the default action, if needed
+        event.preventDefault();
+        // Trigger the button element with a click
+        document.getElementById("myBtn").click();
+      }
+    });
+</script>
+
+</body>
+</html>

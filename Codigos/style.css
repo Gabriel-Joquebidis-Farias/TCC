@@ -328,7 +328,7 @@
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
   font-family: "Roboto", sans-serif;
   text-transform: capitalize;
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(0, 0, 0, 1);
   background: #fff;
   cursor: pointer;
 }
@@ -347,11 +347,67 @@
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
   font-family: "Roboto", sans-serif;
   text-transform: capitalize;
-  color: rgba(0, 0, 0, 0.5);
+  color: rgb(255, 255, 255);
   background: #a76b12;
   cursor: pointer;
 }
 
 .order__button:focus {
   outline: none;
+}
+/*----------Mapa------------*/
+#map{
+  position: relative;
+  width: 100%;
+  height: 89vh;
+}
+.mapboxgl-popup {
+  max-width: 300px;
+  font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  }
+.geocoder-dropdown-item {
+  padding: 5px;
+  }
+.geocoder-dropdown-icon {
+  margin-top: -6px;
+  margin-right: 10px;
+  }
+.geocoder-dropdown-text {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: larger;
+  }
+.custom-marker {
+  background-image: url('https://cdn-icons-png.flaticon.com/512/726/726569.png');
+  background-size: cover;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+.text-popup{
+  text-align:left; 
+  margin-top:12px;
+}
+.marker-title{
+  margin-left: -15px;
+  margin-top: 30px;
+  min-width: 100px;
+  font-weight: 900;
+}
+.pesquisaMap{
+  margin-top: -85vh; 
+  position: absolute;
+}
+#searchInput{
+  margin-left: 20px;
+  border-radius: 10px;
+  border: none;
+  padding-left: 10px;
+}
+@media (max-width:450px) and (min-width:0px){
+  .pesquisaMap{
+    scale: 1.3;
+    margin-left: 4vw;
+    margin-top: -87vh; 
+    position: absolute;
+  }
 }

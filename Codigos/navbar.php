@@ -4,7 +4,7 @@ session_start(); // Inicie a sessão
 // Verifique se o usuário está logado com base na variável de sessão
 if (isset($_SESSION['user_logado']) && $_SESSION['user_logado']) {
     // O usuário está logado, exiba o link para o perfil
-    $perfilLink = "logado.html";
+    $perfilLink = "conta-cliente.html";
 } else {
     // O usuário não está logado, exiba o link para login
     $perfilLink = "login.html";
@@ -39,6 +39,9 @@ if (isset($_SESSION['user_logado']) && $_SESSION['user_logado']) {
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="sobre.html"><h5>SOBRE NÓS</h5></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="mapa.html"><h5>MAPA</h5></a>
                 </li>
             </ul>
             <form class="d-flex tamanhoNav" role="search">
