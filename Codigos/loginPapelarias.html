@@ -56,45 +56,9 @@
 </head>
 
 <body class="bodyIndex">
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-      <a class="navbar-brand"><img src="imagens/navbar.png" width="60%"> </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link " aria-current="page" href="index.html"><h5>HOME</h5></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="produtos.html"><h5>PRODUTOS</h5></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="sobre.html"><h5>SOBRE NÓS</h5></a>
-          </li>
-        </ul>
-        <form class="d-flex tamanhoNav" role="search">
-          <input class="form-control buscaTxt" type="search" placeholder="Search" aria-label="Search" style="border-radius: 25px;">
-          <button class="btn" type="submit"><img src="imagens/lupa.png" alt="" width="38px" height="38px"></button>
-          <a style="font-size: 30px;"> | </a>
-          <li class="nav">
-            <a class="logincadastro" href=""><img src="imagens/carrinho.png" height="45px" width="45px" alt="Carrinho"></a>
-          </li>
-          <a style="font-size: 30px;"> | </a>
-          <li class="nav">
-            <a class="logincadastro" href="login.html"><img src="imagens/pessoa.png" height="45px" width="45px" alt="Pessoa"></a>
-          </li>
-        </form>
-        <ul class="navbar-nav mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="login/cadastro" class="nav-link"></a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
+  
+<!-- Use JavaScript para carregar a navbar -->
+<div id="navbarContainer"></div>
 
   <div class="bgGradient" style="color:white;" align="center">
     <div class="container row justify-content-center" align="center">
@@ -128,6 +92,16 @@
 </div>
 
   <script>
+     // Use JavaScript para carregar a navbar
+     const navbarContainer = document.getElementById("navbarContainer");
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", "navbar.php", true);
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            navbarContainer.innerHTML = xhr.responseText;
+        }
+    };
+    xhr.send();
     document.getElementById('loginButton').addEventListener('click', function(event) {
       event.preventDefault();
       var username = document.getElementById('username').value;

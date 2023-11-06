@@ -126,7 +126,7 @@
   <script> // Use JavaScript para carregar a navbar
     const navbarContainer = document.getElementById("navbarContainer");
     const xhr = new XMLHttpRequest();
-    xhr.open("GET", "navbar.html", true);
+    xhr.open("GET", "navbar.php", true);
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
             navbarContainer.innerHTML = xhr.responseText;
