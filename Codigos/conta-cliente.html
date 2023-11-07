@@ -44,7 +44,7 @@
                       <form>
                           <p>
                           <label>Nome Completo*</label><br>
-                          <input type="text" placeholder="Nina Venelli" disabled style="width: 300px;">
+                          <input type="text" placeholder="Gabriel Farias" disabled style="width: 300px;">
                           </p>
                           <p>
                           <label>CPF*</label><br>
@@ -52,11 +52,11 @@
                           </p>
                           <p>
                           <label>E-mail*</label><br>
-                          <input type="email" placeholder="ninavenelli@gmail.com" disabled style="width: 300px;">
+                          <input type="email" placeholder="gabriel@gmail.com" disabled style="width: 300px;">
                           </p>
                           <p>
                           <label>Telefone*</label><br>
-                          <input type="tel" placeholder="(19) 99123-4567" disabled style="width: 300px;">
+                          <input type="tel" placeholder="(99) 99999-9999" disabled style="width: 300px;">
                           </p>
                           <button class="btn btn-secondary">Editar dados</button>
                           <button class="btn btn-primary">Salvar Alterações</button>
@@ -76,18 +76,18 @@
                           </p>
                           <p>
                           <label>CEP*</label><br>
-                          <input type="number" placeholder="13484-431" disabled style="width: 120px;">
+                          <input type="number" placeholder="11111-111" disabled style="width: 120px;">
                           </p>
                           <p>
                           <label>Bairro*</label><br>
-                          <input type="text" placeholder="Jd. Nova Itália" disabled style="width: 300px;">
+                          <input type="text" placeholder="Teste" disabled style="width: 300px;">
                           </p>
                           <p>
                           <label>Rua e número*</label><br>
-                          <input type="text" placeholder="R. Paschoal Marmo, 1888" disabled style="width: 300px;">
+                          <input type="text" placeholder="Rua Teste, 1111" disabled style="width: 300px;">
                           </p><br>
-                      <button class="btn btn-secondary">Editar dados</button>
-                      <button class="btn btn-primary">Salvar Alterações</button>
+                       <button class="btn btn-secondary">Editar dados</button>
+                          <button class="btn btn-primary">Salvar Alterações</button>
                     </div>
                   </div>
                 </div>
@@ -182,6 +182,19 @@
         }
     };
     xhr.send();
+   
+  // Função para exibir a mensagem de confirmação
+  function exibirMensagem() {
+    // Substitua esta mensagem pelo que você deseja exibir
+    const mensagem = "As alterações foram salvas com sucesso!";
+    alert(mensagem);
+  }
+
+  // Adicione um evento de clique ao botão "Salvar Alterações"
+  const btnSalvarAlteracoes = document.querySelector(".btn-primary");
+  btnSalvarAlteracoes.addEventListener("click", exibirMensagem);
+
+
     </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
   </script>

@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Art Search - Carrinho</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="imagens/Art Search 3 (favicon).png"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <style type="text/css">
+     a {
+        text-decoration: none;
+      }
+      
+      .order__buttonn {
+        border: none;
+        display: block;
+        width: 70%;
+        height: 40px;
+        margin: 5px auto;
+        border-radius: 20px;
+        -webkit-box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+        -moz-box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+        -ms-box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+        -o-box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+        box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+        font-family: "Roboto", sans-serif;
+        text-transform: capitalize;
+        color: rgba(0, 0, 0, 0.5);
+        background: #a76b12;
+        cursor: pointer;
+    }
+
+      .card{
+          margin: auto;
+          max-width: 950px;
+          width: 90%;
+          box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+          border-radius: 1rem;
+          border: transparent;
+      }
+
+      @media(max-width:767px){
+          .card{
+              margin: 3vh auto;
+          }
+      }
+
+      .cart{
+          background-color: #fff;
+          padding: 4vh 5vh;
+          border-bottom-left-radius: 1rem;
+          border-top-left-radius: 1rem;
+      }
+
+      @media(max-width:767px){
+          .cart{
+              padding: 4vh;
+              border-bottom-left-radius: unset;
+              border-top-right-radius: 1rem;
+          }
+      }
+
+      .summary{
+          background-color: #ddd;
+          border-top-right-radius: 1rem;
+          border-bottom-right-radius: 1rem;
+          padding: 4vh;
+          color: rgb(65, 65, 65);
+      }
+
+      @media(max-width:767px){
+          .summary{
+          border-top-right-radius: unset;
+          border-bottom-left-radius: 1rem;
+          }
+      }
+
+      .summary .col-2{
+          padding: 0;
+      }
+
+      .summary .col-10
+      {
+          padding: 0;
+      }
+
+      .row{
+          margin: 0;
+      }
+
+      .title b{
+          font-size: 1.5rem;
+      }
+
+      .main{
+          margin: 0;
+          padding: 2vh 0;
+          width: 100%;
+      }
+
+      .col-2, .col{
+          padding: 0 1vh;
+      }
+
+      .close{
+          margin-left: auto;
+          font-size: 0.7rem;
+      }
+
+      .back-to-shop{
+          margin-top: 4.5rem;
+      }
+
+      .selectCheckout{
+          border: 1px solid rgba(0, 0, 0, 0.137);
+          padding: 1.5vh 1vh;
+          margin-bottom: 4vh;
+          outline: none;
+          width: 100%;
+          background-color: rgb(247, 247, 247);
+      }
+
+      .inputCarrinho{
+          border: 1px solid rgba(0, 0, 0, 0.137);
+          padding: 1vh;
+          margin-bottom: 4vh;
+          outline: none;
+          width: 100%;
+          background-color: rgb(247, 247, 247);
+      }
+
+      .inputCarrinho:focus::-webkit-input-placeholder
+      {
+            color:transparent;
+      }
+
+      .btnCheckout{
+          background-color: #000;
+          border-color: #000;
+          color: white;
+          width: 100%;
+          font-size: 0.7rem;
+          margin-top: 4vh;
+          padding: 1vh;
+          border-radius: 0;
+      }
+
+      .btnCheckout:focus{
+          box-shadow: none;
+          outline: none;
+          box-shadow: none;
+          color: white;
+          -webkit-box-shadow: none;
+          transition: none; 
+      }
+      /* Adicione este CSS ao seu estilo */
+.quantity-controls {
+    display: flex;
+    align-items: center;
+}
+
+.decrement-button,
+.increment-button {
+    width: 30px; /* Ajuste o tamanho conforme necessário */
+    height: 30px;
+    background-color: #a76b12;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer;
+    font-size: 1rem;
+    margin: 0 5px; /* Espaçamento entre os botões */
+}
+
+.quantity-input {
+    width: 30px; /* Ajuste o tamanho conforme necessário */
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.137);
+    outline: none;
+}
+
+    </style>
+</head>
+
+<body class="bodyIndex">
+   <!-- Use JavaScript para carregar a navbar -->
+   <div id="navbarContainer"></div>
+
+
+   <div class="card" style="margin-top: 5vh;">
+    <div class="row">
+       <div class="col-md-8 cart">
+          <div class="title">
+             <div class="row">
+                <div class="col-md-9"><h4><b>Carrinho de Compras</b></h4></div>
+                <div class="col align-self-center text-right text-muted">3 items</div>
+             </div>
+          </div>    
+          <div class="row border-top border-bottom item" data-item="1" data-price="24.00">
+             
+          </div>
+
+          <!-- Outros produtos no carrinho -->
+          
+
+          <div class="row border-top border-bottom item" data-item="3" data-price="220.00">
+             <div class="row main align-items-center">
+                <div class="col-2"><img class="img-fluid" src="imagens/faberCastel.png"></div>
+                <div class="col">
+                   <div class="row">Lápis de Cor</div>
+                   <div class="row text-muted" style="font-size: 0.9rem;">PaperColor</div>
+                </div>
+                <div class="col">
+                   <button class="decrement-button" data-item="3">-</button>
+                   <input class="quantity-input" type="text" value="1" readonly>
+                   <button class="increment-button" data-item="3">+</button>
+                </div>
+                <div class="col item-price">R$ 220.00 <span class="close">&#10005;</span></div>
+             </div>
+          </div>
+            <div class="back-to-shop"><a href="produtos.html">&leftarrow;<span class="text-muted"> Continuar Comprando</span></a></div>
+        </div>
+        <div class="col-md-4 summary">
+            <div><h5><b>Resumo da Compra</b></h5></div>
+            <hr>
+            
+            <form>
+                <p>Frete:</p>
+                <select class="selectCheckout">
+                  <option class="text-muted">Entrega Padrão: R$ 5.00</option>
+                  <option class="text-muted">Retirar na Loja: R$0,00</option>
+                </select>
+                <p>Cupom de desconto:</p>
+                <input class="inputCarrinho" placeholder="Digite seu cupom">
+            </form>
+            <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+                <div class="col">Preço Total:</div>
+                <div class="col text-right" id="totalPrice">R$ 0.00</div>
+            </div>
+            <a href=""><button class="btnCheckout">FINALIZAR COMPRA</button></a>
+        </div>
+    </div>
+</div>
+
+<br><br>
+
+  <footer class="text-center text-lg-start text-white" style="background-color: #363636">
+    <div class="container p-4 pb-0">
+      <section class="">
+        <div class="row">
+          <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+            <h5 class="text-uppercase"><i>Materiais</i></h5>
+
+            <ul class="list-unstyled mb-0">
+              <li>
+                <a href="#!" class="text-white">Folhas</a>
+              </li>
+              <li>
+                <a href="#!" class="text-white">Escrita</a>
+              </li>
+              <li>
+                <a href="#!" class="text-white">Canetas</a>
+              </li>
+              <li>
+                <a href="#!" class="text-white">Mochilas</a>
+              </li>
+              <li>
+                <a href="#!" class="text-white">Cadernos</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+            <h5 class="text-uppercase"><i>Links úteis</i></h5>
+
+            <ul class="list-unstyled mb-0">
+              <li>
+                <a href="Aviso-Legal.html" class="text-white"><i>Aviso Legal</i></a>
+              </li>
+              <li>
+                <a href="Termos-de-servico.html" class="text-white"><i>Termos de Serviço</i></a>
+              </li>
+              <li>
+                <a href="Politica-de-frete.html" class="text-white"><i>Política de Frete</i></a>
+              </li>
+              <li>
+                <a href="Politica-de-reembolso.html" class="text-white"><i>Política de Reembolso</i></a>
+              </li>
+              <li>
+                <a href="Politica-de-privacidade.html" class="text-white"><i>Política de Privacidade</i></a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+            <h5 class="text-uppercase"><i>Para papelarias</i></h5>
+
+            <p>
+              Está afim de alavancar seu negócio? Temos planos gratuitos para sua papelaria começar a vender hoje<br> na Art Search.
+              Venha conhecer nossa plataforma!<br>
+              <a href="CadastroLoja.html" style="color: #a76b12;"> Conhecer </a>ㅤ|ㅤ<a href="loginPapelarias.html" style="color: #a76b12;"> Fazer Login </a>
+            </p>
+          </div>
+
+          <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+            <p class="titulosRodape">Deixe seu e-mail e receba nossas oferta!:</p>
+            <input class="form-control buscaTxt" type="search" placeholder="Search" aria-label="Search" style="border-radius: 8px;"><br>
+            <button class="order__buttonn" style="color: white;"><a href="produtos.html">Veja Mais!</a></button>
+          </div>
+        </div>
+      </section>
+     <br><br>
+    </div>
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+         O uso deste site está sujeito aos termos e condições do Termo de Uso e Política de privacidade ©Art Search.<br>
+         Todos os direitos reservados.
+    </div>
+  </footer>
+  <script>
+    // Use JavaScript para carregar a navbar
+    const navbarContainer = document.getElementById("navbarContainer");
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", "navbar.php", true);
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            navbarContainer.innerHTML = xhr.responseText;
+        }
+    };
+    xhr.send();
+     // Função para exibir a mensagem de confirmação
+  function exibirMensagem() {
+    // Substitua esta mensagem pelo que você deseja exibir
+    const mensagem = "Em Desenvolvimento.";
+    alert(mensagem);
+  }
+
+  // Adicione um evento de clique ao botão "Finalizar Compra"
+  const btnFinalizarCompra = document.querySelector(".btnCheckout");
+  btnFinalizarCompra.addEventListener("click", exibirMensagem);
+
+    // Função para aumentar a quantidade
+    function incrementQuantity(item) {
+            const quantityInput = item.querySelector(".quantity-input");
+            let quantity = parseInt(quantityInput.value, 10);
+            quantity += 1;
+            quantityInput.value = quantity;
+            updateItemTotalPrice(item);
+            updateSummary();
+        }
+
+        // Função para diminuir a quantidade
+        function decrementQuantity(item) {
+            const quantityInput = item.querySelector(".quantity-input");
+            let quantity = parseInt(quantityInput.value, 10);
+            if (quantity > 1) {
+                quantity -= 1;
+                quantityInput.value = quantity;
+                updateItemTotalPrice(item);
+                updateSummary();
+            }
+        }
+
+        // Função para atualizar o preço total deste item
+        function updateItemTotalPrice(item) {
+            const quantityInput = item.querySelector(".quantity-input");
+            const priceElement = item.querySelector(".item-price"); // Usar "item-price" em vez de "item-total-price"
+            const itemPrice = parseFloat(item.getAttribute("data-price"));
+            const quantity = parseInt(quantityInput.value, 10);
+            const totalPrice = (itemPrice * quantity).toFixed(2);
+            priceElement.textContent = `R$ ${totalPrice}`;
+        }
+
+        // Função para atualizar o resumo da compra
+        function updateSummary() {
+            const itemPrices = document.querySelectorAll(".item-price");
+            let totalPrice = 0;
+
+            itemPrices.forEach(priceElement => {
+                const itemPrice = parseFloat(priceElement.textContent.replace("R$ ", ""));
+                totalPrice += itemPrice;
+            });
+
+            // Atualize o preço total da compra
+            const totalPriceElement = document.querySelector("#totalPrice");
+            totalPriceElement.textContent = `R$ ${totalPrice.toFixed(2)}`;
+        }
+
+        // Adicionar eventos de clique para os botões de aumento e diminuição
+        const incrementButtons = document.querySelectorAll(".increment-button");
+        const decrementButtons = document.querySelectorAll(".decrement-button");
+
+        incrementButtons.forEach(button => {
+            button.addEventListener("click", function () {
+                const itemNumber = this.getAttribute("data-item");
+                const item = document.querySelector(`.item[data-item="${itemNumber}"]`);
+                incrementQuantity(item);
+            });
+        });
+
+        decrementButtons.forEach(button => {
+            button.addEventListener("click", function () {
+                const itemNumber = this.getAttribute("data-item");
+                const item = document.querySelector(`.item[data-item="${itemNumber}"]`);
+                decrementQuantity(item);
+            });
+        });
+
+        updateSummary();
+</script>
+</body>
+</html>

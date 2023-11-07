@@ -155,6 +155,33 @@
           -webkit-box-shadow: none;
           transition: none; 
       }
+      /* Adicione este CSS ao seu estilo */
+.quantity-controls {
+    display: flex;
+    align-items: center;
+}
+
+.decrement-button,
+.increment-button {
+    width: 30px; /* Ajuste o tamanho conforme necessário */
+    height: 30px;
+    background-color: #a76b12;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer;
+    font-size: 1rem;
+    margin: 0 5px; /* Espaçamento entre os botões */
+}
+
+.quantity-input {
+    width: 30px; /* Ajuste o tamanho conforme necessário */
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.137);
+    outline: none;
+}
+
     </style>
 </head>
 
@@ -162,63 +189,70 @@
    <!-- Use JavaScript para carregar a navbar -->
    <div id="navbarContainer"></div>
 
-<div class="card" style="margin-top: 5vh;">
+
+   <div class="card" style="margin-top: 5vh;">
     <div class="row">
-        <div class="col-md-8 cart">
-            <div class="title">
-                <div class="row">
-                    <div class="col-md-9"><h4><b>Carrinho de Compras</b></h4></div>
-                    <div class="col align-self-center text-right text-muted">3 items</div>
+       <div class="col-md-8 cart">
+          <div class="title">
+             <div class="row">
+                <div class="col-md-9"><h4><b>Carrinho de Compras</b></h4></div>
+                <div class="col align-self-center text-right text-muted">3 items</div>
+             </div>
+          </div>    
+          <div class="row border-top border-bottom item" data-item="1" data-price="24.00">
+             <div class="row main align-items-center">
+                <div class="col-2"><img class="img-fluid" src="imagens/FolhaA4.png"></div>
+                <div class="col">
+                   <div class="row">Folha A4 Seninha</div>
+                   <div class="row text-muted" style="font-size: 0.9rem;">PaperColor</div>
                 </div>
-            </div>    
-            <div class="row border-top border-bottom">
-                <div class="row main align-items-center">
-                    <div class="col-2"><img class="img-fluid" src="imagens/FolhaA4.png"></div>
-                    <div class="col">
-                        <div class="row">Folha A4 Seninha</div>
-                        <div class="row text-muted" style="font-size: 0.9rem;">PaperColor</div>
-                    </div>
-                    <div class="col">
-                        <a href="#">- </a><a href="#" class="border"> 1 </a><a href="#"> +</a>
-                    </div>
-                    <div class="col">R$ 24.00 <span class="close">&#10005;</span></div>
+                <div class="col">
+                   <button class="decrement-button" data-item="1">-</button>
+                   <input class="quantity-input" type="text" value="1" readonly>
+                   <button class="increment-button" data-item="1">+</button>
                 </div>
-            </div>
-            <div class="row">
-                <div class="row main align-items-center">
-                    <div class="col-2"><img class="img-fluid" src="imagens/mochilaFeminina.png"></div>
-                    <div class="col">
-                      <div class="row">Mochila Feminina</div>
-                      <div class="row text-muted" style="font-size: 0.9rem;">PaperColor</div>
-                    </div>
-                    <div class="col">
-                        <a href="#">-</a><a href="#" class="border">1</a><a href="#">+</a>
-                    </div>
-                    <div class="col">R$ 169.90 <span class="close">&#10005;</span></div>
+                <div class="col item-price">R$ 24.00 <span class="close">&#10005;</span></div>
+             </div>
+          </div>
+
+          <!-- Outros produtos no carrinho -->
+          <div class="row border-top border-bottom item" data-item="2" data-price="169.90">
+             <div class="row main align-items-center">
+                <div class="col-2"><img class="img-fluid" src="imagens/mochilaFeminina.png"></div>
+                <div class="col">
+                   <div class="row">Mochila Feminina</div>
+                   <div class="row text-muted" style="font-size: 0.9rem;">PaperColor</div>
                 </div>
-            </div>
-            <div class="row border-top border-bottom">
-                <div class="row main align-items-center">
-                    <div class="col-2"><img class="img-fluid" src="imagens/faberCastel.png"></div>
-                    <div class="col">
-                      <div class="row">Lápis de Cor</div>
-                      <div class="row text-muted" style="font-size: 0.9rem;">PaperColor</div>
-                    </div>
-                    <div class="col">
-                        <a href="#">-</a><a href="#" class="border">1</a><a href="#">+</a>
-                    </div>
-                    <div class="col">R$ 220.00 <span class="close">&#10005;</span></div>
+                <div class="col">
+                   <button class="decrement-button" data-item="2">-</button>
+                   <input class="quantity-input" type="text" value="1" readonly>
+                   <button class="increment-button" data-item="2">+</button>
                 </div>
-            </div>
+                <div class="col item-price">R$ 169.90 <span class="close">&#10005;</span></div>
+             </div>
+          </div>
+
+          <div class="row border-top border-bottom item" data-item="3" data-price="220.00">
+             <div class="row main align-items-center">
+                <div class="col-2"><img class="img-fluid" src="imagens/faberCastel.png"></div>
+                <div class="col">
+                   <div class="row">Lápis de Cor</div>
+                   <div class="row text-muted" style="font-size: 0.9rem;">PaperColor</div>
+                </div>
+                <div class="col">
+                   <button class="decrement-button" data-item="3">-</button>
+                   <input class="quantity-input" type="text" value="1" readonly>
+                   <button class="increment-button" data-item="3">+</button>
+                </div>
+                <div class="col item-price">R$ 220.00 <span class="close">&#10005;</span></div>
+             </div>
+          </div>
             <div class="back-to-shop"><a href="produtos.html">&leftarrow;<span class="text-muted"> Continuar Comprando</span></a></div>
         </div>
         <div class="col-md-4 summary">
             <div><h5><b>Resumo da Compra</b></h5></div>
             <hr>
-            <div class="row">
-                <div class="col" style="padding-left:0;">3 Itens</div>
-                <div class="col text-right">R$ 413.90</div>
-            </div>
+            
             <form>
                 <p>Frete:</p>
                 <select class="selectCheckout">
@@ -230,9 +264,9 @@
             </form>
             <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
                 <div class="col">Preço Total:</div>
-                <div class="col text-right">R$ 413,90</div>
+                <div class="col text-right" id="totalPrice">R$ 0.00</div>
             </div>
-            <a href="Checkout.html"><button class="btnCheckout">FINALIZAR COMPRA</button></a>
+            <a href=""><button class="btnCheckout">FINALIZAR COMPRA</button></a>
         </div>
     </div>
 </div>
@@ -322,6 +356,84 @@
         }
     };
     xhr.send();
+     // Função para exibir a mensagem de confirmação
+  function exibirMensagem() {
+    // Substitua esta mensagem pelo que você deseja exibir
+    const mensagem = "Em Desenvolvimento.";
+    alert(mensagem);
+  }
+
+  // Adicione um evento de clique ao botão "Finalizar Compra"
+  const btnFinalizarCompra = document.querySelector(".btnCheckout");
+  btnFinalizarCompra.addEventListener("click", exibirMensagem);
+    // Função para aumentar a quantidade
+    function incrementQuantity(item) {
+            const quantityInput = item.querySelector(".quantity-input");
+            let quantity = parseInt(quantityInput.value, 10);
+            quantity += 1;
+            quantityInput.value = quantity;
+            updateItemTotalPrice(item);
+            updateSummary();
+        }
+
+        // Função para diminuir a quantidade
+        function decrementQuantity(item) {
+            const quantityInput = item.querySelector(".quantity-input");
+            let quantity = parseInt(quantityInput.value, 10);
+            if (quantity > 1) {
+                quantity -= 1;
+                quantityInput.value = quantity;
+                updateItemTotalPrice(item);
+                updateSummary();
+            }
+        }
+
+        // Função para atualizar o preço total deste item
+        function updateItemTotalPrice(item) {
+            const quantityInput = item.querySelector(".quantity-input");
+            const priceElement = item.querySelector(".item-price"); // Usar "item-price" em vez de "item-total-price"
+            const itemPrice = parseFloat(item.getAttribute("data-price"));
+            const quantity = parseInt(quantityInput.value, 10);
+            const totalPrice = (itemPrice * quantity).toFixed(2);
+            priceElement.textContent = `R$ ${totalPrice}`;
+        }
+
+        // Função para atualizar o resumo da compra
+        function updateSummary() {
+            const itemPrices = document.querySelectorAll(".item-price");
+            let totalPrice = 0;
+
+            itemPrices.forEach(priceElement => {
+                const itemPrice = parseFloat(priceElement.textContent.replace("R$ ", ""));
+                totalPrice += itemPrice;
+            });
+
+            // Atualize o preço total da compra
+            const totalPriceElement = document.querySelector("#totalPrice");
+            totalPriceElement.textContent = `R$ ${totalPrice.toFixed(2)}`;
+        }
+
+        // Adicionar eventos de clique para os botões de aumento e diminuição
+        const incrementButtons = document.querySelectorAll(".increment-button");
+        const decrementButtons = document.querySelectorAll(".decrement-button");
+
+        incrementButtons.forEach(button => {
+            button.addEventListener("click", function () {
+                const itemNumber = this.getAttribute("data-item");
+                const item = document.querySelector(`.item[data-item="${itemNumber}"]`);
+                incrementQuantity(item);
+            });
+        });
+
+        decrementButtons.forEach(button => {
+            button.addEventListener("click", function () {
+                const itemNumber = this.getAttribute("data-item");
+                const item = document.querySelector(`.item[data-item="${itemNumber}"]`);
+                decrementQuantity(item);
+            });
+        });
+
+        updateSummary();
 </script>
 </body>
 </html>
